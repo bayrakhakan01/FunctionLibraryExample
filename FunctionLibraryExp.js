@@ -3,19 +3,32 @@ const para = document.querySelector('p');
 
 function squared(num) {
     return num * num;
-  }
-  
-  function cubed(num) {
-    return num * num * num;
-  }
-  
-  function factorial(num) {
+}
+
+function cubed(num) {
+return num * num * num;
+}
+
+function factorial(num) {
     if (num < 0) return undefined;
     if (num == 0) return 1;
     let x = num - 1;
     while (x > 1) {
-      num *= x;
-      x--;
+    num *= x;
+    x--;
     }
     return num;
-  }
+}
+
+input.onchange = function () {
+    const num =input.value;
+    if (isNaN(num)) {
+        para.textContent = 'You need to enter a number!';
+    } else {
+        para.innerHTML =  num + ' squared is ' + squared(num) + '.<br><br>' + 
+                            num + ' cubed is ' + cubed(num) + '.<br><br>' + 
+                            num + ' factorial is ' + factorial(num) + '.'; 
+    }
+
+    
+}
